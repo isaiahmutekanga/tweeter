@@ -4,6 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+//function to render tweets
 const renderTweets = (tweets) => {
   $(".tweet-container").empty();
   tweets.forEach((element) => {
@@ -12,6 +13,7 @@ const renderTweets = (tweets) => {
   });
 };
 
+//function for generationg html
 const createTweetElement = function (tweet) {
   const escape = function (str) {
     let div = document.createElement("div");
@@ -51,6 +53,7 @@ const createTweetElement = function (tweet) {
   </article>`);
 };
 
+//document ready
 $(document).ready(function () {
   const loadtweets = function () {
     $.get(
@@ -61,7 +64,9 @@ $(document).ready(function () {
       "json"
     );
   };
-  loadtweets();
+  loadtweets(); //loading the tweets on document load
+
+  //on form submitt
   $("#posttweets").submit(function (event) {
     event.preventDefault();
     const $tweetinput = $("#tweet-text");
@@ -73,7 +78,6 @@ $(document).ready(function () {
       $.post("/tweets", $("#posttweets").serialize(), function () {
         loadtweets();
       });
-      //loadtweets();
     }
   });
 });

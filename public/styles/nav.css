@@ -11,8 +11,16 @@ nav {
 }
 
 .tweeter {
+  color: whitesmoke;
   font-family: "Bungee", cursive;
-  text-align: center;
+
+  margin-top: 15px;
+  align-content: center;
+}
+
+.first-nav {
+  display: flex;
+  justify-content: space-between;
 }
 
 .writeatweet {
