@@ -68,6 +68,8 @@ $(document).ready(function () {
 
   //on form submitt
   $("#posttweets").submit(function (event) {
+    
+   
     event.preventDefault();
     const $tweetinput = $("#tweet-text");
     if ($tweetinput.val() === "" || $tweetinput.val().length > 140) {
@@ -78,6 +80,7 @@ $(document).ready(function () {
       $.post("/tweets", $("#posttweets").serialize(), function () {
         loadtweets();
       });
+      $('#tweet-text').val("")
     }
   });
 });
